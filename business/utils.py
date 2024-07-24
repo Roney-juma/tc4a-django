@@ -1,13 +1,25 @@
 import africastalking
 import requests
 
-africastalking.initialize('sandbox', 'atsk_3441882cc226354f7f3594da6b40ff14cc126eb1a747302af123aaa12d4d6c5c798489c2')
+# Initialize the SDK with your username and API key
+africastalking.initialize('boowafrica', 'e4844127b4905d49e31a88625ceabee80aaea03d6135a520835ecbd5c5b7a78e')
 sms = africastalking.SMS
 
-# Send SMS with SSL verification disabled (for testing only)
 def send_sms_alert():
-    response = sms.send('message', ['+254710248170'], verify=False)
-    return response
+    recipients = ['+254710248170']  # List of phone numbers
+    message = 'Hello, World!'       # The message content
+
+    try:
+        response = sms.send(message, recipients)
+        return response
+    except Exception as e:
+        print(f"Error sending SMS: {e}")
+        return None
+
+# Example usage
+response = send_sms_alert()
+print(response)
+
 
 # Alternative way by using requests directly
 
