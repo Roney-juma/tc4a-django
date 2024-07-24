@@ -39,7 +39,25 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'business',
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_framework_simplejwt',
 ]
+
+AUTHENTICATION_BACKENDS = (
+    ...
+    'allauth.account.auth_backends.AuthenticationBackend',
+    ...
+)
+SITE_ID = 1
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        ...
+    ),
+    ...
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
