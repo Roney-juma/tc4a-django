@@ -1,29 +1,21 @@
 import africastalking
-import requests
-
-# Initialize the SDK with your username and API key
-africastalking.initialize('boowafrica', 'e4844127b4905d49e31a88625ceabee80aaea03d6135a520835ecbd5c5b7a78e')
+ 
+# Initialize the Africastalking SDK
+africastalking.initialize(
+    'bloowafrica', 'e4844127b4905d49e31a88625ceabee80aaea03d6135a520835ecbd5c5b7a78e')
 sms = africastalking.SMS
-
+ 
+ 
 def send_sms_alert():
-    recipients = ['+254710248170']  # List of phone numbers
-    message = 'Hello, World!'       # The message content
-
     try:
-        response = sms.send(message, recipients)
+        response = sms.send(
+            "Hello, this is a test message from Africastalking!", ["+254794299622"], 'BLOOW')
+        print("Response:", response)
         return response
     except Exception as e:
-        print(f"Error sending SMS: {e}")
+        print("Error sending message:", e)
         return None
-
-# Example usage
-response = send_sms_alert()
-print(response)
-
-
-# Alternative way by using requests directly
-
-
-
-
+ 
+ 
+# Call the function
 send_sms_alert()
