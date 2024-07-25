@@ -4,15 +4,15 @@ from .models import Customer, Order
 
 class CustomerTestCase(TestCase):
     def setUp(self):
-        Customer.objects.create(name="Roney Juma", code="")
+        Customer.objects.create(name="Roney Juma", code="00600")
 
     def test_customer_creation(self):
-        john = Customer.objects.get(name="John Doe")
+        john = Customer.objects.get(name="Roney Juma")
         self.assertEqual(john.code, "JD123")
 
 class OrderTestCase(TestCase):
     def setUp(self):
-        customer = Customer.objects.create(name="John Doe", code="JD123")
+        customer = Customer.objects.create(name="Roney Juma", code="RJ123")
         Order.objects.create(customer=customer, item="Book", amount=29.99)
 
     def test_order_creation(self):

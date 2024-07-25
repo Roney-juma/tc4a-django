@@ -6,16 +6,12 @@ africastalking.initialize(
 sms = africastalking.SMS
  
  
-def send_sms_alert():
+def send_sms_alert(message,phone_number):
     try:
         response = sms.send(
-            "Hello, this is a test message from Africastalking!", ["+254794299622"], 'BLOOW')
+            message, [phone_number], 'BLOOW')
         print("Response:", response)
         return response
     except Exception as e:
         print("Error sending message:", e)
         return None
- 
- 
-# Call the function
-send_sms_alert()
